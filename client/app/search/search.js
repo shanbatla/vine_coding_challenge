@@ -1,6 +1,6 @@
 angular.module('supplyhub', [])
 
 //Implement search controller
-.controller('SearchController', function() {
-  
+.controller('SearchController', function($scope) {
+
 })
