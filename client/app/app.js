@@ -1,4 +1,3 @@
-
 angular.module('supplyhub', [
-
+  'SearchController'
 ]);
