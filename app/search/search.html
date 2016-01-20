@@ -1,12 +1,12 @@
 <p>Search Page</p>
 <div>
-    <form name="shortlyForm" ng-submit="" novalidate>
+    <form name="shortlyForm" ng-submit="searchForItem()" novalidate>
       
-      <input name="search" type="url"
+      <input name="search" ng-model="searchInput"
         placeholder="Enter item here" required
       />
 
-      <button type="submit" value="search">
+      <button type="submit" value="searchItem">
         Search
       </button>
 
