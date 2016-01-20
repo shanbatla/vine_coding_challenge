@@ -9,7 +9,10 @@ angular.module('myApp.search', ['ngRoute'])
   });
 }])
 
-.controller('SearchCtrl', ['$scope', '$http', '$location', 'ngTableParams', function($scope, $http, $location, ngTableParams) {
+.controller('SearchCtrl', ['$scope', '$http', '$location', 'NgTableParams', function($scope, $http, $location, NgTableParams) {
+
+  $scope.results = '';
+  $scope.paginatedResults = '';
 
   $scope.searchForItem = function() {
 
@@ -18,49 +21,24 @@ angular.module('myApp.search', ['ngRoute'])
       url: 'http://api.vip.supplyhub.com:19000/products' + '?search=' + $scope.searchInput
     }).then(function (response) {
       $scope.results = response.data;
+      $scope.paginatedResults = $scope.results.slice(0, 10);
     }, function (response) {
       console.log('Error: ' + response);
     });
 
-    $scope.tableParams = new ngTableParams({}, {
-       dataset: $scope.results
-    });
+    // $scope.resultsTable = new NgTableParams({
+    //   count: 10
+    // }, 
+    // {
+    //   // page size buttons (right set of buttons in demo)
+    //   counts: [],
+    //   // determines the pager buttons (left set of buttons in demo)
+    //   paginationMaxBlocks: 13,
+    //   paginationMinBlocks: 2,
+    //   dataset: dataSet
+      
+    // });
   
   };
 
-
 }]);
-
-
-
-
-//Notes
-  
-  //Response object from http response 
-// var obj = 
-// { 
-// brand: { name: 'HILTI, INC.', slug: 'hilti-inc' },
-//   product: 
-//    { pkgWeight: 2863,
-//      invoiceDescription: 'Hammer Drill Bit',
-//      pkgType: 'PK',
-//      indvWeightQtyUom: 'EA',
-//      upc: 613023533723,
-//      mfrCatNum: '00293416',
-//      psUomQty: 1,
-//      psUom: 'EA',
-//      pkgUom: 'EA',
-//      name: 'Hammer Drill Bit',
-//      pkgQty: 1,
-//      indvWeightUom: 'LB',
-//      fulltechDesc: 'Hammer Drill Bit',
-//      colThree: 506,
-//      pkgWeightUom: 'LB',
-//      indvWeightQty: 1,
-//      indvWeight: 2863,
-//      specificationSheetUrl: 'https://images.tradeservice.com/F5O2VZeQgqbz23ZI/ATTACHMENTS/DIR100129/LEVMFCE22208_1_2.pdf',
-//      slug: '613023533723' },
-//   category: 
-//    { name: 'Power Tools - Bits, Parts,  Accessories ',
-//      slug: 'power-tools-bits-parts-accessories-66150' } 
-// }

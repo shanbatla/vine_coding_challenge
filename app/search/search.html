@@ -12,13 +12,13 @@
   </div><!-- /.row -->
 
 <!-- Search result table -->  
-  <div class="container"  ng-hide='results === undefined' align="center">
+  <div class="container"  ng-hide='results === "" || undefined' align="center">
     
     <h2>
       Search Results for {{searchInput}}
     </h2>
 
-    <table class="table" ng-table="tableParams">
+    <table class="table" ng-table="resultsTable">
      
      <thead>
        <tr>
