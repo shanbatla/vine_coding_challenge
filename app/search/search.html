@@ -1,14 +1,29 @@
 <p>Search Page</p>
 <div>
-    <form name="shortlyForm" ng-submit="searchForItem()" novalidate>
-      
-      <input name="search" ng-model="searchInput"
-        placeholder="Enter item here" required
-      />
+  
+  <!-- Search input form -->   
+  <form name="shortlyForm" ng-submit="searchForItem()" novalidate>
+    <input name="search" ng-model="searchInput" placeholder="Enter item here" required/>
+    <button type="submit" value="searchItem">
+      Search
+    </button>
+  </form>
 
-      <button type="submit" value="searchItem">
-        Search
-      </button>
+<!-- Search result table -->  
+  <div>
+    <table ng-table="tableParams">
+      <tr>
+        <td ng-repeat="result in results">
+          <a href='#'>
+            <img ng-src="{{result.product.photo || ''}}">
+          </a>
+          <div>
+            <p>{{result.brand.name}}</p>
+            <p>{{result.product.name}}</p>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
 
-    </form>
 </div>
