@@ -19,23 +19,26 @@
     </h2>
 
     <table class="table" ng-table="tableParams">
-      
-     <tr>
-      <th>
-        Item Picture
-      </th>
-      <th>
-        Item Brand
-      </th>
-      <th>
-        Item Type
-      </th>
-     </tr>  
+     
+     <thead>
+       <tr>
+        <th>
+          Item Picture
+        </th>
+        <th>
+          Item Brand
+        </th>
+        <th>
+          Item Type
+        </th>
+       </tr>  
+     </thead> 
 
+     <tbody>
       <tr ng-repeat="result in results">
         <td>
           <a href="#">
-            <img ng-src="{{result.product.photo || ''}}">
+            <img ng-src="{{result.product.photo || 'No pic placeholder'}}">
           </a>
         </td>
         <td>
@@ -45,9 +48,10 @@
           {{result.product.name}}
         </td>
       </tr>
+     </tbody>
 
     </table>
-    
+
   </div>
 
 </div>
