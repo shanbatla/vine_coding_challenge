@@ -9,26 +9,25 @@ angular.module('myApp.search', ['ngRoute'])
   });
 }])
 
-.controller('SearchCtrl', ['$scope', '$http', 'ngTableParams', function($scope, $http, ngTableParams) {
+.controller('SearchCtrl', ['$scope', '$http', '$location', 'ngTableParams', function($scope, $http, $location, ngTableParams) {
 
   $scope.searchForItem = function() {
-    console.log('Searching for ' + $scope.searchInput);
 
     $http({
       method: 'GET',
       url: 'http://api.vip.supplyhub.com:19000/products' + '?search=' + $scope.searchInput
     }).then(function (response) {
-      console.log('Success: ' + response.data);
       $scope.results = response.data;
     }, function (response) {
       console.log('Error: ' + response);
     });
 
+    $scope.tableParams = new ngTableParams({}, {
+       dataset: $scope.results
+    });
+  
   };
 
-  $scope.tableParams = new ngTableParams({}, {
-     dataset: $scope.results
-  });
 
 }]);
 

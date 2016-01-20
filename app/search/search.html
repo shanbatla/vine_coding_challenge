@@ -1,32 +1,53 @@
-<p>Search Page</p>
 <div class="container-fluid">
 
   <div class="row">
-    <div class="col-md-3 col-md-offset-4">
+    <div class="col-md-4 col-md-offset-4">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search for..." ng-model="searchInput">
         <span class="input-group-btn">
           <button class="btn btn-default" type="button" ng-click="searchForItem()">Search</button>
         </span>
       </div><!-- /input-group -->
-    </div><!-- /.col-lg-6 -->
+    </div><!-- /.col-->
   </div><!-- /.row -->
 
 <!-- Search result table -->  
-  <div>
-    <table ng-table="tableParams">
-      <tr>
-        <td ng-repeat="result in results">
-          <a href='#'>
+  <div class="container"  ng-hide='results === undefined' align="center">
+    
+    <h2>
+      Search Results for {{searchInput}}
+    </h2>
+
+    <table class="table" ng-table="tableParams">
+      
+     <tr>
+      <th>
+        Item Picture
+      </th>
+      <th>
+        Item Brand
+      </th>
+      <th>
+        Item Type
+      </th>
+     </tr>  
+
+      <tr ng-repeat="result in results">
+        <td>
+          <a href="#">
             <img ng-src="{{result.product.photo || ''}}">
           </a>
-          <div>
-            <p>{{result.brand.name}}</p>
-            <p>{{result.product.name}}</p>
-          </div>
+        </td>
+        <td>
+          {{result.brand.name}}
+        </td>
+        <td>
+          {{result.product.name}}
         </td>
       </tr>
+
     </table>
+    
   </div>
 
 </div>
