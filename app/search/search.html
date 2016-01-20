@@ -1,13 +1,16 @@
 <p>Search Page</p>
-<div>
-  
-  <!-- Search input form -->   
-  <form name="shortlyForm" ng-submit="searchForItem()" novalidate>
-    <input name="search" ng-model="searchInput" placeholder="Enter item here" required/>
-    <button type="submit" value="searchItem">
-      Search
-    </button>
-  </form>
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-3 col-md-offset-4">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for..." ng-model="searchInput">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" ng-click="searchForItem()">Search</button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
 
 <!-- Search result table -->  
   <div>
