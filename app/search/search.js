@@ -14,19 +14,6 @@ angular.module('myApp.search', ['ngRoute', 'angularUtils.directives.dirPaginatio
   // Instantiate scope variables
   $scope.results = '';
 
-  // Add parameter to location service
-  // var original = $location.path;
-  // $location.path = function (path, reload) {
-  //   if (reload === false) {
-  //     var lastRoute = $route.current;
-  //     var un = $rootScope.$on('$locationChangeSuccess', function () {
-  //       $route.current = lastRoute;
-  //         un();
-  //       });
-  //     }
-  //   return original.apply($location, [path]);
-  // };
-
   $scope.searchForItem = function() {
 
     $http({
@@ -34,13 +21,6 @@ angular.module('myApp.search', ['ngRoute', 'angularUtils.directives.dirPaginatio
       url: 'http://api.vip.supplyhub.com:19000/products' + '?search=' + $scope.searchInput
     }).then(function (response) {
       $scope.results = response.data;
-      
-      // $location.path('/?search=' + $scope.searchInput).replace();
-      // console.log($location.path());
-    
-      // Change path
-      // $location.path('/?search=' + $scope.searchInput, false);
-      // console.log($location.path());
 
       $location.update_path('/?search=' + $scope.searchInput, true);
 
