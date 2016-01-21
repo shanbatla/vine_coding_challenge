@@ -5,7 +5,9 @@
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search for..." ng-model="searchInput">
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button" ng-click="searchForItem()">Search</button>
+          <button class="btn btn-default" type="button" ng-click="searchForItem()">
+            Search
+          </button>
         </span>
       </div><!-- /input-group -->
     </div><!-- /.col-->
@@ -39,7 +41,7 @@
       <tr dir-paginate="result in results|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">
         <td>
           <a href="#">
-            <img ng-src="{{result.product.photo || 'No pic placeholder'}}">
+            <img ng-src="{{result.product.photo || 'No pic placeholder'}}" height="42" width="42">
           </a>
         </td>
         <td>
@@ -53,10 +55,7 @@
 
     </table>
 
-    <dir-pagination-controls
-      max-size="10"
-      direction-links="true"
-      boundary-links="true" >
+    <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true" > 
     </dir-pagination-controls>
 
   </div>
