@@ -15,17 +15,17 @@ angular.module('myApp.search', ['ngRoute', 'angularUtils.directives.dirPaginatio
   $scope.results = '';
 
   // Add parameter to location service
-  var original = $location.path;
-  $location.path = function (path, reload) {
-    if (reload === false) {
-      var lastRoute = $route.current;
-      var un = $rootScope.$on('$locationChangeSuccess', function () {
-        $route.current = lastRoute;
-          un();
-        });
-      }
-    return original.apply($location, [path]);
-  };
+  // var original = $location.path;
+  // $location.path = function (path, reload) {
+  //   if (reload === false) {
+  //     var lastRoute = $route.current;
+  //     var un = $rootScope.$on('$locationChangeSuccess', function () {
+  //       $route.current = lastRoute;
+  //         un();
+  //       });
+  //     }
+  //   return original.apply($location, [path]);
+  // };
 
   $scope.searchForItem = function() {
 
@@ -39,8 +39,8 @@ angular.module('myApp.search', ['ngRoute', 'angularUtils.directives.dirPaginatio
       // console.log($location.path());
     
       // Change path
-      $location.path('/?search=' + $scope.searchInput, false);
-      console.log($location.path());
+      // $location.path('/?search=' + $scope.searchInput, false);
+      // console.log($location.path());
 
     }, function (response) {
       console.log('Error: ' + response);
