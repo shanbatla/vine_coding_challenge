@@ -4,7 +4,8 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.search',
-  'ngTable'
+  'ngTable',
+  'ngLocationUpdate'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider
