@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.search', ['ngRoute'])
+angular.module('myApp.search', ['ngRoute', 'angularUtils.directives.dirPagination'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/search', {
@@ -25,19 +25,6 @@ angular.module('myApp.search', ['ngRoute'])
     }, function (response) {
       console.log('Error: ' + response);
     });
-
-    // $scope.resultsTable = new NgTableParams({
-    //   count: 10
-    // }, 
-    // {
-    //   // page size buttons (right set of buttons in demo)
-    //   counts: [],
-    //   // determines the pager buttons (left set of buttons in demo)
-    //   paginationMaxBlocks: 13,
-    //   paginationMinBlocks: 2,
-    //   dataset: dataSet
-      
-    // });
   
   };
 

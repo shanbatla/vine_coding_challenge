@@ -35,7 +35,8 @@
      </thead> 
 
      <tbody>
-      <tr ng-repeat="result in results">
+      <!-- <tr ng-repeat="result in results"> -->
+      <tr dir-paginate="result in results|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">
         <td>
           <a href="#">
             <img ng-src="{{result.product.photo || 'No pic placeholder'}}">
@@ -51,6 +52,12 @@
      </tbody>
 
     </table>
+
+    <dir-pagination-controls
+      max-size="10"
+      direction-links="true"
+      boundary-links="true" >
+    </dir-pagination-controls>
 
   </div>
 
