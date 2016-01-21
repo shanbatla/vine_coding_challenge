@@ -38,7 +38,7 @@
 
      <tbody>
       <!-- <tr ng-repeat="result in results"> -->
-      <tr dir-paginate="result in results|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">
+      <tr dir-paginate="result in results|orderBy:sortKey:reverse|filter:search|itemsPerPage:10">
         <td>
           <a href="#">
             <img ng-src="{{result.product.photo || 'No pic placeholder'}}" height="42" width="42">

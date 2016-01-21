@@ -12,7 +12,6 @@ angular.module('myApp.search', ['ngRoute', 'angularUtils.directives.dirPaginatio
 .controller('SearchCtrl', ['$scope', '$http', '$location', 'NgTableParams', function($scope, $http, $location, NgTableParams) {
 
   $scope.results = '';
-  $scope.paginatedResults = '';
 
   $scope.searchForItem = function() {
 
@@ -21,7 +20,6 @@ angular.module('myApp.search', ['ngRoute', 'angularUtils.directives.dirPaginatio
       url: 'http://api.vip.supplyhub.com:19000/products' + '?search=' + $scope.searchInput
     }).then(function (response) {
       $scope.results = response.data;
-      $scope.paginatedResults = $scope.results.slice(0, 10);
     }, function (response) {
       console.log('Error: ' + response);
     });
