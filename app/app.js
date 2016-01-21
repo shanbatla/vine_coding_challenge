@@ -7,5 +7,13 @@ angular.module('myApp', [
   'ngTable'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/search'});
+  $routeProvider
+
+    .when('/search', {
+      templateUrl: 'search/search.html',
+      reloadOnSearch: false,
+      controller: 'SearchCtrl'
+    })
+
+    .otherwise({redirectTo: '/search'});
 }]);
