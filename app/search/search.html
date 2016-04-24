@@ -36,7 +36,7 @@
 
      <tbody>
       <!-- <tr ng-repeat="result in results"> -->
-      <tr dir-paginate="result in results|orderBy:sortKey:reverse|filter:search|itemsPerPage:10">
+      <tr dir-paginate="result in results|orderBy:sortKey:reverse|filter:search|itemsPerPage:30">
         
         <td>
           <p>
@@ -45,8 +45,8 @@
         </td>
         
         <td>
-          <p ng-repeat="result.labels in results">
-            {{result.labels.name}}
+          <p>
+            {{result.labels}}
           </p>
         </td>
         
