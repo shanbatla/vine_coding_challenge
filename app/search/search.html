@@ -3,10 +3,9 @@
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." ng-model="searchInput">
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button" ng-click="searchForItem()">
-            Search
+          <button class="btn btn-success" type="button" ng-click="searchForItem()">
+            Fetch Issues
           </button>
         </span>
       </div><!-- /input-group -->
@@ -15,23 +14,22 @@
 
 <!-- Search result table -->  
   <div class="container"  ng-hide='results === "" || undefined' align="center">
-    
-    <h2>
-      Search Results for {{searchInput}}
-    </h2>
 
     <table class="table" ng-table="resultsTable">
      
      <thead>
        <tr>
         <th>
-          Item Picture
+          Issue - Number and Title
         </th>
         <th>
-          Item Brand
+          Labels
         </th>
         <th>
-          Item Type
+          User - Name and Avatar
+        </th>
+        <th>
+          Issue Body
         </th>
        </tr>  
      </thead> 
@@ -39,17 +37,35 @@
      <tbody>
       <!-- <tr ng-repeat="result in results"> -->
       <tr dir-paginate="result in results|orderBy:sortKey:reverse|filter:search|itemsPerPage:10">
+        
         <td>
+          <p>
+            Issue #{{result.number}} - {{result.title}}
+          </p>
+        </td>
+        
+        <td>
+          <p ng-repeat="result.labels in results">
+            {{result.labels.name}}
+          </p>
+        </td>
+        
+        <td>
+          <p>
+            {{result.user.login}}
+          </p>  
+
           <a href="#">
-            <img ng-src="{{result.product.photo || 'No pic placeholder'}}" height="42" width="42">
+            <img ng-src="{{result.user.avatar_url}}" height="42" width="42">
           </a>
         </td>
+
         <td>
-          {{result.brand.name}}
+          <p>
+            <!-- {{result.body}} -->
+          </p>
         </td>
-        <td>
-          {{result.product.name}}
-        </td>
+      
       </tr>
      </tbody>
 
