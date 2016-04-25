@@ -3,6 +3,7 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.search',
+  'myApp.issue',
   'ngTable',
   'ngLocationUpdate'
 ]).
@@ -13,6 +14,12 @@ config(['$routeProvider', function($routeProvider) {
       templateUrl: 'search/search.html',
       reloadOnSearch: false,
       controller: 'SearchCtrl'
+    })
+
+    .when('/issue', {
+      templateUrl: 'issue/issue.html',
+      reloadOnSearch: false,
+      controller: 'IssueCtrl'
     })
 
     .otherwise({redirectTo: '/search'});
