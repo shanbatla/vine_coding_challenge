@@ -1,6 +1,6 @@
 # Vine Coding Challenge
 
-> A GitHub issue tracker.
+> A GitHub issue tracker built with Angular 1.x and styled with Bootstrap.
 
 ### Requirements
 
@@ -14,4 +14,6 @@
 npm start
 ```
 
-> Navigate to http://localhost:8000/app
+> Navigate to http://localhost:8000/app in your browser.
+
+> Fetch issues and enjoy!
