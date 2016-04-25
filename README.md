@@ -2,8 +2,6 @@
 
 > A GitHub issue tracker.
 
-## Development
-
 ### Requirements
 
 - Node 4.x.x
@@ -11,5 +9,8 @@
 
 ### Starting the app
 
-> From the root of the directory - ```sh npm start```
+> From the root of the directory
+```sh 
+npm start
+```
 > Navigate to http://localhost:8000/app
