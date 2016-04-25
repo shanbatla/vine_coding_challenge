@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-  <div class="row" align="center">
+  <div class="row text-center">
     <button class="btn btn-success" type="button" ng-click="searchForItem()">
       Fetch Issues
     </button>
@@ -13,16 +13,16 @@
      
      <thead>
        <tr>
-        <th class="table-header">
+        <th class="text-center">
           Issue
         </th>
-        <th class="table-header">
+        <th class="text-center">
           Labels
         </th>
-        <th class="table-header">
+        <th class="text-center">
           User
         </th>
-        <th class="table-header">
+        <th class="text-center">
           Issue Body
         </th>
        </tr>  
@@ -31,35 +31,29 @@
      <tbody>
       <!-- <tr ng-repeat="result in results"> -->
       <tr dir-paginate="result in results|orderBy:sortKey:reverse|filter:search|itemsPerPage:30">
-        
         <td class="col-sm-3 col-md-3 col-lg-3">
-
           <a href="">
             <p>
               Issue #{{result.number}} - {{result.title}}
             </p>
           </a>
-
         </td>
         
         <td>
-          <p>
-            <!-- {{result.labels}} -->
-          </p>
+          <ul>
+            <li ng-repeat="label in result.labels">
+              {{label.name}}
+            </li>
+          </ul>
         </td>
         
         <td>
-          
-          <div align="center">
-
+          <div class="text-center">
             <img ng-src="{{result.user.avatar_url}}" id="profile-pic" height="50" width="50">
-          
             <p>
               {{result.user.login}}
             </p>  
-
           </div>
-
         </td>
 
         <td class="col-sm-5 col-md-5 col-lg-5">
