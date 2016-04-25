@@ -28,3 +28,11 @@
   content: "";
   padding: 0;
 }
+
+#profile-pic {
+  border-radius: 50%;
+}
+
+.table-header {
+  text-align: center;
+}

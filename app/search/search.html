@@ -1,15 +1,9 @@
 <div class="container-fluid">
 
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <div class="input-group">
-        <span class="input-group-btn">
-          <button class="btn btn-success" type="button" ng-click="searchForItem()">
-            Fetch Issues
-          </button>
-        </span>
-      </div><!-- /input-group -->
-    </div><!-- /.col-->
+  <div class="row" align="center">
+    <button class="btn btn-success" type="button" ng-click="searchForItem()">
+      Fetch Issues
+    </button>
   </div><!-- /.row -->
 
 <!-- Search result table -->  
@@ -19,16 +13,16 @@
      
      <thead>
        <tr>
-        <th>
-          Issue - Number and Title
+        <th class="table-header">
+          Issue
         </th>
-        <th>
+        <th class="table-header">
           Labels
         </th>
-        <th>
-          User - Name and Avatar
+        <th class="table-header">
+          User
         </th>
-        <th>
+        <th class="table-header">
           Issue Body
         </th>
        </tr>  
@@ -38,10 +32,14 @@
       <!-- <tr ng-repeat="result in results"> -->
       <tr dir-paginate="result in results|orderBy:sortKey:reverse|filter:search|itemsPerPage:30">
         
-        <td>
-          <p>
-            Issue #{{result.number}} - {{result.title}}
-          </p>
+        <td class="col-sm-3 col-md-3 col-lg-3">
+
+          <a href="">
+            <p>
+              Issue #{{result.number}} - {{result.title}}
+            </p>
+          </a>
+
         </td>
         
         <td>
@@ -51,16 +49,20 @@
         </td>
         
         <td>
-          <p>
-            {{result.user.login}}
-          </p>  
+          
+          <div align="center">
 
-          <a href="#">
-            <img ng-src="{{result.user.avatar_url}}" height="42" width="42">
-          </a>
+            <img ng-src="{{result.user.avatar_url}}" id="profile-pic" height="50" width="50">
+          
+            <p>
+              {{result.user.login}}
+            </p>  
+
+          </div>
+
         </td>
 
-        <td>
+        <td class="col-sm-5 col-md-5 col-lg-5">
           <p>
             {{result.body | limitTo: 140}}{{result.body.length > 140 ? '...' : ''}}
           </p>
