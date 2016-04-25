@@ -31,7 +31,7 @@
      <tbody>
       <tr dir-paginate="result in results|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">
         <td class="col-sm-3 col-md-3 col-lg-3">
-          <a href="">
+          <a href="#/issue/{{result.number}}">
             <p>
               Issue #{{result.number}} - {{result.title}}
             </p>
@@ -55,7 +55,7 @@
           </div>
         </td>
 
-        <td class="col-sm-5 col-md-5 col-lg-5">
+        <td class="col-sm-8 col-md-8 col-lg-8">
           <p>
             {{result.body | limitTo: 140}}{{result.body.length > 140 ? '...' : ''}}
           </p>

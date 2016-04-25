@@ -16,7 +16,7 @@ config(['$routeProvider', function($routeProvider) {
       controller: 'SearchCtrl'
     })
 
-    .when('/issue', {
+    .when('/issue/:number', {
       templateUrl: 'issue/issue.html',
       reloadOnSearch: false,
       controller: 'IssueCtrl'
