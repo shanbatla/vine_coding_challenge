@@ -46,7 +46,7 @@
         
         <td>
           <p>
-            {{result.labels}}
+            <!-- {{result.labels}} -->
           </p>
         </td>
         
@@ -62,7 +62,7 @@
 
         <td>
           <p>
-            <!-- {{result.body}} -->
+            {{result.body | limitTo: 140}}{{result.body.length > 140 ? '...' : ''}}
           </p>
         </td>
       
@@ -71,7 +71,7 @@
 
     </table>
 
-    <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true" > 
+    <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true"> 
     </dir-pagination-controls>
 
   </div>

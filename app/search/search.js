@@ -21,9 +21,7 @@ angular.module('myApp.search', ['ngRoute', 'angularUtils.directives.dirPaginatio
     }).then(function (response) {
       $scope.results = response.data;
 
-      $location.update_path('/?search=' + $scope.searchInput, true);    
-
-      console.log($scope.results.length)      
+      $location.update_path('/?search=' + $scope.searchInput, true); 
 
     }, function (response) {
       console.log('Error: ' + response);
