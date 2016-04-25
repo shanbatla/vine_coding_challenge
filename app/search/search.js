@@ -2,12 +2,12 @@
 
 angular.module('myApp.search', ['ngRoute', 'angularUtils.directives.dirPagination'])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/search', {
-    templateUrl: 'search/search.html',
-    controller: 'SearchCtrl'
-  });
-}])
+// .config(['$routeProvider', function($routeProvider) {
+//   $routeProvider.when('/search', {
+//     templateUrl: 'search/search.html',
+//     controller: 'SearchCtrl'
+//   });
+// }])
 
 .controller('SearchCtrl', ['$scope', '$http', '$location', '$route', 'NgTableParams', function($scope, $http, $location, $route, NgTableParams) {
 

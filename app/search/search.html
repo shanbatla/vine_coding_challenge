@@ -4,7 +4,7 @@
     <button class="btn btn-success" type="button" ng-click="searchForItem()">
       Fetch Issues
     </button>
-  </div><!-- /.row -->
+  </div>
 
 <!-- Search result table -->  
   <div class="container"  ng-hide='results === "" || undefined' align="center">
@@ -29,7 +29,6 @@
      </thead> 
 
      <tbody>
-      <!-- <tr ng-repeat="result in results"> -->
       <tr dir-paginate="result in results|orderBy:sortKey:reverse|filter:search|itemsPerPage:30">
         <td class="col-sm-3 col-md-3 col-lg-3">
           <a href="">
