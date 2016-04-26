@@ -30,7 +30,7 @@
     <!-- Issue body -->
     <div class="col-md-8">
       <h4>
-        Issue - {{results.state}}
+        Issue - <em>state is {{results.state}}</em>
       </h4>
       <p>
         {{results.body}}
@@ -55,8 +55,10 @@
         </h4>
         <ul>
           <li ng-repeat="comment in comments">
-            <a href="comment.user.html_url">
-              @{{comment.user.login}}
+            <a ng-href="{{comment.user.html_url}}">
+              <strong>
+                @{{comment.user.login}}
+              </strong>
             </a>
             <p>
               {{comment.body}}

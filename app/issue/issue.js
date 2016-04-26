@@ -23,7 +23,6 @@ angular.module('myApp.issue', ['ngRoute', 'angularUtils.directives.dirPagination
             url: response.data.comments_url
         }).then(function (response) {
             $scope.comments = response.data;
-            console.log($scope.comments);
         }, function (response) {
           console.log('Error: ' + response);    
           });
