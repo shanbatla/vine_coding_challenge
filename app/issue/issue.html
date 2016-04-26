@@ -11,7 +11,9 @@
         </div>
         <div class="media-body">          
           <h1 class="media-heading">
-            {{results.user.login}}
+            <a ng-href="{{results.user.html_url}}">
+              {{results.user.login}}
+            </a>
           </h1>
         </div>
       </div>
