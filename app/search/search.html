@@ -1,7 +1,7 @@
 <div class="container-fluid">
 
   <div class="row text-center">
-    <button class="btn btn-success" type="button" ng-click="searchForItem()">
+    <button class="btn btn-success btn-lg" type="button" ng-click="searchForItem()">
       Fetch Issues
     </button>
   </div>
@@ -38,7 +38,7 @@
           </a>
         </td>
         
-        <td class="col-sm-4 col-md-4 col-lg-4">
+        <td class="col-sm-3 col-md-3 col-lg-3">
           <ul>
             <li ng-repeat="label in result.labels">
               {{label.name}}
@@ -48,7 +48,7 @@
         
         <td>
           <div class="text-center">
-            <img ng-src="{{result.user.avatar_url}}" id="profile-pic" height="50" width="50">
+            <img ng-src="{{result.user.avatar_url}}" class="img-circle" height="50" width="50">
             <p>
               {{result.user.login}}
             </p>  

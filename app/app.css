@@ -29,6 +29,10 @@
   padding: 0;
 }
 
-#profile-pic {
-  border-radius: 50%;
+.issue-detail {
+  width: 75%;
+}
+
+.bottom-border {
+  border-bottom: 1px;
 }

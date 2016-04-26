@@ -1,12 +1,63 @@
-<div class="container-fluid">
+<div class="container">
 
-  <div class="container">
-    
+  <!-- <div class="container">
     <div class="text-center">
-      <img ng-src="{{results.user.avatar_url}}" id="profile-pic" height="50" width="50">
-        <p>
-          {{results.user.login}}
-        </p>  
+      <img ng-src="{{results.user.avatar_url}}" class="img-circle" height="50" width="50">
+      <p>
+        {{results.user.login}}
+      </p>  
+    </div>
+  </div> -->
+
+
+  <div class="row">
+    <!-- Container for avatar pic and username -->
+    <div class="col-md-4">
+      <!-- Avatar pic and username -->
+      <div class="media">
+        <div class="media-left">
+          <img ng-src="{{results.user.avatar_url}}" class="img-circle media-object" height="50" width="50">
+        </div>
+        <div class="media-body">          
+          <h1 class="media-heading">
+            {{results.user.login}}
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <!-- Issue body -->
+    <div class="col-md-8">
+      <h4>
+        Issue - {{results.state}}
+      </h4>
+      <p>
+        {{results.body}}
+      </p>
+      
+      <!-- Label list -->
+      <div ng-show="results.labels.length > 0">
+        <h4>
+          Labels
+        </h4>
+        <ul>
+          <li ng-repeat="label in results.labels">
+            {{label.name}}
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Comments list -->
+      <div ng-show="results.comments > 0">
+        <h4>
+          Comments
+        </h4>
+        <!-- <ul>
+          <li ng-repeat="label in results.labels">
+            {{label.name}}
+          </li>
+        </ul> -->
+      </div>
     </div>
 
   </div>
