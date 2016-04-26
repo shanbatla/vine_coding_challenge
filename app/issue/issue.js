@@ -13,7 +13,6 @@ angular.module('myApp.issue', ['ngRoute', 'angularUtils.directives.dirPagination
       url: 'https://api.github.com/repos/npm/npm/issues/' + issueNumber
     }).then(function (response) {
       $scope.results = response.data;
-      console.log($scope.results);
 
       // If comments exist, get them
       if(response.data.comments > 0) {
@@ -23,7 +22,8 @@ angular.module('myApp.issue', ['ngRoute', 'angularUtils.directives.dirPagination
             method: 'GET',
             url: response.data.comments_url
         }).then(function (response) {
-            console.log(response.data);
+            $scope.comments = response.data;
+            console.log($scope.comments);
         }, function (response) {
           console.log('Error: ' + response);    
           });
