@@ -32,6 +32,8 @@
      <!-- Table body -->
      <tbody>
       <tr dir-paginate="result in results|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">
+        
+        <!-- Issue and body -->
         <td class="col-sm-3 col-md-3 col-lg-3">
           <a href="#/issue/{{result.number}}">
             <p>
@@ -42,6 +44,7 @@
           </a>
         </td>
         
+        <!-- Unordered list of variables -->
         <td class="col-sm-3 col-md-3 col-lg-3">
           <ul>
             <li ng-repeat="label in result.labels">
@@ -50,6 +53,7 @@
           </ul>
         </td>
         
+        <!-- Username and avatar -->
         <td>
           <div class="text-center">
             <img ng-src="{{result.user.avatar_url}}" class="img-circle" height="50" width="50">
@@ -61,9 +65,13 @@
           </div>
         </td>
 
+        <!-- Issue body -->
         <td class="col-sm-8 col-md-8 col-lg-8">
-          <p>
-            {{result.body | limitTo: 140}}{{result.body.length > 140 ? '...' : ''}}
+          <p ng-if="result.body.length > 140">
+            {{truncateBody(result.body)}}...
+          </p>
+          <p ng-if="result.body.length <= 140">
+            {{result.body}}
           </p>
         </td>
       
